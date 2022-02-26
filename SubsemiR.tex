@@ -1,0 +1,1264 @@
+% -*- mode: latex; eval: (flyspell-mode 1); ispell-local-dictionary: "american"; TeX-master: t; -*-
+
+
+
+\documentclass[12pt]{article}
+
+\usepackage{hyperref,amsthm,amsmath,amsfonts,enumerate,stmaryrd}
+
+\newcommand{\bZ}{\mathbb{Z}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bN}{\mathbb{N}} %{\bZ_{\ge 0}}
+\newcommand{\bNast}{\bZ_{> 0}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\Rnneg}{\left[0, \infty\right[} %{\bR_{\ge 0}}
+\newcommand{\Rpos}{\left]0, \infty\right[} %{\bR_{\ge 0}}
+\newcommand{\Rneg}{\left]- \infty, 0 \right[} %{\bR_{\ge 0}}
+\newcommand{\Rnpos}{\left]- \infty, 0 \right]} %{\bR_{\ge 0}}
+
+\newcommand{\bC}{\mathbb{C}}
+
+
+
+
+\newcommand{\calr}{\mathcal{R}}
+
+\newcommand{\caln}{\mathcal{N}}
+\newcommand{\calu}{\mathcal{U}}
+\newcommand{\calv}{\mathcal{V}}
+\newcommand{\cals}{\mathcal{S}}
+\newcommand{\calx}{\mathcal{X}}
+\newcommand{\caly}{\mathcal{Y}}
+\newcommand{\cala}{\mathcal{A}}
+\newcommand{\calb}{\mathcal{B}}
+\newcommand{\calc}{\mathcal{C}}
+\newcommand{\calm}{\mathcal{M}}
+
+
+\newcommand{\seg}[2]{\left\llbracket#1, #2 \right\rrbracket}
+\newcommand{\floor}[1]{\left\lfloor #1  \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1  \right\rceil}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\thalf}{\tfrac{1}{2}}
+
+\newcommand{\Vepsilon}{\left]- \epsilon, + \epsilon \right[}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+ 
+
+ \theoremstyle{definition}
+ \newtheorem{definition}{Definition}
+ \newtheorem{exercise}{Exercise}
+% \newtheorem{example}{Example}
+
+
+
+\title{Subtraction in semirings}
+
+\author{Charlot Colmes}
+
+\begin{document}
+
+
+\maketitle
+
+\sloppy
+
+
+
+\begin{lemma} \label{lem:I-cap-uI}
+  Let $I$ be a non-trivial interval of~$\bR$.
+  The set of those $u \in \bR$ for which $u I$ intersects $I$ is a neighborhood of~$1$. 
+\end{lemma}
+
+\begin{proof}
+  Put
+  $$
+  U = \left\{ u \in \bR : u I \cap I \ne \emptyset \right\} \, . 
+  $$
+  Since $I$ is an interval of $\bR$,
+  exactly one of the following three assertions holds true:
+  $0 \in I$, $I \subseteq \Rpos$, or $I \subseteq \Rneg$.
+  First, assume $0 \in I$.
+  Then, $u I \cap I$ contains $0$ as an element for each $u \in \bR$. 
+  It follows $U = \bR$, and the latter is trivially a neighborhood of~$1$.
+  Now, assume $I \subseteq \Rpos$; the case where $I \subseteq \Rneg$ is symmetric.
+  Let $a$, $b \in I$ be such that $a < b$:
+  $[a, b] \subseteq I$ and $b^{-1} a < 1 < b a^{-1}$.
+  %Let $u \in \left[a b^{-1}, b a^{-1} \right]$.
+  For each $u \in \left[1, b a^{-1} \right]$, % is equivalent to $u a \in [a, b]$
+  $u a$ belongs to $[a, b]$, 
+  whence $u a \in u I \cap I$;
+  for each $u \in \left[a b^{-1}, 1 \right]$,
+  $u b$ belongs to $[a, b]$,
+  whence $u b \in u I \cap I$.
+  %For each $\{ u a, u b \} \cap [a, b] \subseteq u I \cap I$ 
+  %For each $u \in \left[a b^{-1}, b a^{-1} \right]$,
+  It follows $\left[a b^{-1}, b a^{-1} \right] \subseteq U$,
+  and the former is clearly a neighborhood of~$1$.
+ \end{proof}
+
+ \begin{lemma}
+   Let $I$ be a non-trivial interval of $\bR$.
+   There exists $n \in \bN$ such that
+   $\left\{ (n + k) x : (x, k) \in I \times \bN \right\}$
+   $$
+   \bigcup_{k = n}^\infty k I 
+   $$
+   is an interval.
+ \end{lemma}
+
+ \begin{proof}
+   Since $1 + k^{-1}$ approaches $1$ as $k$ approaches $\infty$,
+   Lemma~\ref{lem:IcapuI} ensures that there exists $n \in \bNast$ such that for every $k \in \left[n, \infty \right[$,
+   $(1 + k^{-1}) I$ intersects $I$, or equivalently, 
+   $(k + 1) I$ and $kI$ intersect.
+   Now, a simple induction on $m$ shows that
+   $$
+   \bigcup_{k = n}^{m + n} k I 
+   $$
+   is an interval for every $m \in \bN$.
+   It follows
+   % $$
+   % \bigcup_{n
+   % $$
+   
+   
+ \end{proof}
+ 
+ 
+ \begin{theorem}[Belarusian Mathematical Olympiad 2005]
+   For every  $I$ be a non-trivial interval of~$\bR$.
+   $$
+   \bigcup_{n = 1}^{\infty} k X 
+   $$
+  Let $M$ be an additive submonoid of~$\bR$.
+   If $M$ is closed under multiplication by positive integers and if $M$ contains a non-trivial interval then
+  $M$ contains an unbounded interval.
+\end{theorem}
+
+\begin{proof}
+  Let $I$ be non-trivial interval of $\bR$ such that $I \subseteq M$.
+  Put
+  $$
+  J_n = \bigcup_{k = 1}^n k I
+  $$
+  for each $n \in \bN \cup \{ \infty \}$.
+  Our task is to prove that $J_\infty$ is an interval.
+ \end{proof}
+
+For every $r \in \Rnneg$ and every $X \subseteq \bR$, equality $X + [- r, + r ] = \bR$ reads ``the covering radius of $X$ is not greater than $r$''.
+
+\begin{lemma} \label{lem:rateau}
+  Let $M$ be an additive submonoid of $\bR$ that straddles~$0$.
+  Equality
+  \begin{equation} \label{eq:rateau:M+I=R}
+  \bR = M +  \left[- \thalf \abs{x}, + \thalf \abs{x} \right] 
+%  M +  \left[- \thalf \abs{x}, + \thalf \abs{x} \right] = \bR
+  \end{equation} 
+  holds true for every $x \in M \setminus \{ 0 \}$.
+\end{lemma}
+
+
+\begin{proof}
+  Let $x \in M \setminus \{ 0 \}$ and let $\rho \in \bR$.
+  Our task is to prove that
+  the right-hand side of Equation~\eqref{eq:rateau:M+I=R} contains $\rho$ as an element,
+  or equivalently,
+  that there exists $y \in M$ such that
+  \begin{equation} \label{eq:rateau:rho-y}
+    \abs{\rho - y} \le \thalf \abs{x} \,.
+  \end{equation} 
+  Since $M$ straddles $0$, there exists $w \in M$ such that $x^{-1} w < 0$.
+  Put
+  \begin{align*}
+   m & = \max \{ 0, \ceil{w^{-1} \rho} \} \,, \\
+   \nu & = (w^{-1}\rho - m) x^{-1} w  \,, \\
+   n & = \floor{\nu + \thalf} \,,
+   \intertext{and} 
+   y & =  m w + n x \,.
+   \end{align*} 
+  % $
+  % m = \max \{ 0, \ceil{w^{-1} \rho} \}
+  % $,
+  % $
+  % \nu = (w^{-1}\rho - m) x^{-1} w 
+  % $,
+  % $
+  % n = \floor{\nu + \thalf} 
+  % $,
+  % and
+  % $
+  % y =  m w + n x
+  % $.
+   By definition, we have $m \in \bN$ and $m \ge w^{-1} \rho$.
+   By combining the latter inequality with the fact that $x^{-1} w$ is negative,
+   we obtain $\nu \ge 0$, and consequently, $n \in \bN$.
+  It follows
+  $$y \in \bN w + \bN x \subseteq M \, .$$
+  In addition, $\rho$, $\nu$, $n$, and $y$ satisfy
+  $$- \thalf \le \nu  - n < \thalf
+  $$ and
+  $$\rho - y = (\nu - n) x \,, $$
+  %$\nu x = - w m + \rho$
+  whence Equation~\eqref{eq:rateau:rho-y} holds true.
+  % $$\abs{\rho - y} =  \abs{\nu - n} \abs{x} \le \thalf \abs{x} \,,$$
+  % as desired.
+\end{proof}
+
+\begin{lemma} \label{lem:half}
+  Let $M$ be an additive submonoid of $\bR$ that straddles~$0$.
+  % For each $x \in M$,
+  % $M \ne \bZ x$ implies $M \cap \left[- \thalf \abs{x}, + \thalf \abs{x} \right] \ne \{ 0 \}$.
+  For each $x \in M \setminus \{ 0 \}$,
+  $M \cap \left[- \thalf \abs{x}, + \thalf \abs{x} \right] = \{ 0 \}$ implies $M = \bZ x$.
+\end{lemma}
+
+\begin{proof}
+  Let $x \in M \setminus \{ 0 \}$ be such that $M \ne \bZ x$.
+  Put $V = \left[- \thalf \abs{x}, + \thalf \abs{x} \right]$.
+  Our task is to prove $M \cap V \ne \{ 0 \}$.
+  %
+  First, assume $- x \in M$, or equivalently, $\bZ x \subset M$.
+  Then, there exists $y \in M$ such that $y \notin \bZ x$.
+  Besides, Lemma~\ref{lem:rateau} ensures $\bZ x + V = \bR$.
+  In particular, $\bZ x + V$ contains $y$ as an element,
+  and thus there exists $n \in \bZ$ such that $y - n x \in V$.
+  By construction, $y - n x$ is a non-zero element of $M \cap V$.
+  % 
+  Second, assume $- x \notin M$.
+  Lemma~\ref{lem:rateau} ensures $- x \in M + V$,
+  so there exists $y \in M$ such that $(- x) - y \in V$.
+  Besides, the latter assertion is equivalent to $x + y \in V$ because $V = - V$.
+  Therefore, $x + y$ is a non-zero element of $M \cap V$.
+\end{proof}
+
+\begin{theorem}[\cite{AbelsManoussos2012}] \label{thm:additive-submonoid-R}
+  Let $M$ be an additive submonoid of $\bR$ that straddles~$0$.
+  Either $M$ is dense in $\bR$ or there exists $x \in \bR$ such that $M = \bZ x$.
+\end{theorem}
+
+\begin{proof}
+  %$M \cap [- 2 \epsilon, 2 \epsilon ] \ne \{ 0 \}$ implies $M + [- \epsilon, \epsilon] = \bR$.
+  Put $M' = M \setminus \{ 0 \}$.
+  Let $a \in M'$ be fixed and let $\epsilon \in \Rpos$.
+  Assume $M \ne \bZ x$ for every $x \in \bZ$.
+  Then, it follows from Lemma~\ref{lem:half} that for each $x \in M'$,
+  there exists $y \in M'$ such that $\abs{y} \le \thalf \abs{x}$.
+  Therefore, a straightforward induction on $n$ shows that for each $n \in \bN$,
+  there exists $x \in M'$ such that $\abs{x} \le 2^{- n} \abs{a}$.
+  Since $2^{-n} \abs{a}$ approaches $0$ as $n$ approaches $\infty$,
+  there exists $x \in M'$ such that $\abs{x} < 2 \epsilon$.
+  By construction of $x$,
+  the right-hand side of Equation~\eqref{eq:rateau:M+I=R} is a subset of $M + [- \epsilon, + \epsilon]$,
+  so Lemma~\ref{lem:rateau} yields $M + [- \epsilon, + \epsilon] = \bR$.
+  Since $\epsilon$ is arbitrarily small, $M$ is dense in~$\bR$.
+\end{proof}
+
+
+\begin{theorem} \label{thm:additive-subgroup-R}
+  Let $G$ be an additive subgroup of~$\bR$.
+  Either $G$ is dense in $\bR$ or there exists $x \in \bR$ such that $G = \bZ x$.
+\end{theorem}
+
+
+\begin{proof}
+  If $G$ straddles $0$ then Theorem~\ref{thm:additive-submonoid-R} applies with $M = G$.
+  If $G$ does not straddle $0$ then $G = \{ 0 \} = \bZ 0$.
+\end{proof}
+
+  
+
+\begin{theorem}[\cite{AbelsManoussos2012}] \label{thm:additive-closure}
+  Let $M$, $X \subseteq \Rnneg$ be such that $M$ is the additive monoid generated by~$X$.
+  For each $b \in \Rnneg$, $X \cap [0, b]$ is finite if, and only if, $M \cap [0, b]$ is finite.
+  % For every finite $X \subseteq \Rnneg$ and every $b \in \Rnneg$, 
+  % % For every $X \subseteq \Rnneg$ and every $b \in \Rnneg$,
+  % % the intersection of $[0, b]$ with $X$ is finite
+  % % if, and only if, 
+  % the intersection of $[0, b]$ with the additive closure of $X \cup \left[b, \infty \right[$ is finite.
+\end{theorem}
+
+\begin{proof}
+ % Let $b \in \Rnneg$ be fixed.
+  The ``if part'' holds true because $X \cap [0, b] \subseteq M \cap [0, b]$ for every $b \in \Rnneg$.
+  It remains to prove the ``only if part''.
+  Let $b \in \Rnneg$ be such that $X \cap [0, b]$ is finite.
+  Since replacing $X$ with $X \setminus \{ 0 \}$ leaves $M$ unchanged,  
+  we may assume $0 \notin X$ without loss of generality.
+  % Our task is to prove that $M \cap [0, b]$
+  %Since $b = 0$ implies $M \cap [0, b] = \{ 0 \}$, we may assume $b > 0$.
+  %Then, $0$ is not a limit point of $X$,
+  %and thus
+  Then, there exists $K \in \bNast$ such that $K^{-1} b$ bounds $X$ from below:
+  set
+  $$
+  K = \begin{cases}
+    \ceil{b^{-1} \min (X)} & \text{if   $X \cap [0, b] \ne \emptyset$,} \\
+    1 & \text{otherwise.}
+  \end{cases}
+  $$
+  % if $X \cap [0, b] \ne \emptyset$, 
+  % and $K = 1$ otherwise.
+  Put
+  $$
+  B(k) = M \cap \left[0, k K^{-1} b \right]
+  $$
+  for each $k \in \Rnneg$.
+  Our task it to prove that $B(K) = M \cap [0, b]$ is finite.
+  More precisely, we prove by induction on $k$ that $B(k)$ is finite for each $k \in \{ 0, 1, 2, \ldots, K \}$.
+  Since $B(0) = \{ 0 \}$, the basis of our induction holds true.
+  Now, let $k \in [0, K - 1]$.
+  Since $M$ and $X$ satisfy
+  $$
+  M = \{ 0 \} \cup (M + X) \,,
+  $$
+  $B(k)$ and $B(k + 1)$ satisfy
+  $$
+  B(k + 1) \subseteq \{ 0 \} \cup \left(  B(k) + \left( X \cap [0, b]  \right) \right) \,.
+  $$
+  It follows from the latter inclusion that the finiteness of $B(k)$ implies that of $B(k + 1)$.
+\end{proof}
+
+
+\begin{theorem}
+  Let $M$ be a finitely generated submonoid of $\bR$.
+  Either $M$ is dense in $\bR$ or $M$ is discrete.
+\end{theorem}
+
+\begin{proof}
+  If $M$ straddles $0$ then Theorem~\ref{thm:additive-submonoid-R} yields the desired result.
+  Now, assume that $M$ does not straddle~$0$.
+  Without loss of generality, we may assume $M \subseteq \Rnneg$.
+  
+\end{proof}
+
+ \begin{theorem} \label{thm:Nr-N}
+   For each $\rho \in \bR$,
+   the following three assertions are equivalent:
+     \begin{enumerate}
+     \item $\bN \rho - \bN$ is not discrete, \label{ass:Nr-N:discrete}
+     \item $\bN \rho - \bN$ is dense in $\bR$, and  \label{ass:Nr-N:dense}
+    \item  $\rho$ is positive and irrational. \label{ass:Nr-N:irrational}
+    \end{enumerate} 
+   % $\bN \rho - \bN$ is dense in $\bR$ if, and only if,  $\rho$ is positive and irrational.
+\end{theorem}
+
+\begin{proof}
+  Put $M = \bN \rho - \bN$.
+  First, assume that $\rho$ is non-positive.
+  Then, every element of $M$ is non-positive, and thus $M$ is not dense in~$\bR$.
+  Second, assume that $\rho$ is rational.
+  Then, there exists $n \in \bZ \setminus \{ 0 \}$ such that $n \rho \in \bZ$.
+  It follows $M \subseteq n^{-1} \bZ$, and thus $M$ is not dense in~$\bR$.
+  Hence, the ``only if part'' holds true.
+  Let us now prove the ``if part''.
+  Note that $M$ is the additive submonoid of $\bR$ generated by $\rho$ and $- 1$.
+  Assume that $\rho$ is positive and that $M$ is not dense in~$\bR$.
+  Then, $M$ straddles $0$,
+  and thus Theorem~\ref{thm:additive-submonoid-R} ensures that there exists $x \in \bR$ such that $M = \bZ x$.
+  In particular, there exists $m \in \bZ$ such that $\rho = m x$ and there exists $n \in \bZ$ such that $n x = - 1$.
+  It follows $\rho = - m n^{-1}$, whence $\rho$ is rational.
+\end{proof}
+
+\begin{theorem}
+  For each $\rho \in \bR$,
+   $\left\{ n \rho - \floor{n \rho} : n \in \bN \right\}$ is dense in $[0, 1]$ if, and only if,
+   $\rho$ is irrational.
+ \end{theorem}
+
+ \begin{proof}
+   Put
+   $A = \left\{ n \rho - \floor{n \rho} : n \in \bN \right\}$ and $M = \bN \abs{ \rho } - \bN$.
+   If $\rho \ge 0$ then $A = M \cap \left[0, 1 \right[$;
+   if $\rho \le 0$ then $A = (- M) \cap \left[0, 1 \right[$.
+   Assume that $\rho$ is irrational.
+   Then, $\abs{\rho}$ is positive and irrational, and thus Theorem~\ref{thm:Nr-N} ensures that $M$ is dense in~$\bR$.
+   
+   % Assume that $\rho$ is rational.
+   % Then, there exists $n \in \bZ \setminus \{ 0 }$ such that $n \rho \in \bZ$.
+   % It follows $M \subseteq n^{-1} \bZ$, and thus $A$ is not dense in~$\bR$.
+   
+   
+   %   $M$ and $A$ satisfies $A = \sigma M \cap \left[0, 1 \right[$.
+  \end{proof}
+ 
+
+ 
+
+\bibliographystyle{plain}
+\bibliography{bibmat}
+\end{document} 
+
+   $$
+   \sigma = \begin{cases}
+     - 1 & \text{if $\rho < 0$,}  \\
+     0   & \text{if $\rho = 0$,} \\
+     1 & \text{if $\rho > 0$.}
+     \end{cases} 
+     $$
+   Clearly,
+\begin{proof}
+  Put $M = \bN \rho - \bN$. 
+
+  $\ref{ass:Nb-Na:Za-Nb} \implies \ref{ass:Nb-Na:Nb-Na}$.
+  Assume that $M$ is not dense in~$\bR$.
+  Since  $M$ is an additive monoid that straddles $0$ and
+  the additive group generated by $M$ is equal to that generated by $M'$.
+  Moreover,
+  Theorem~\ref{thm:additive-submonoid-R} ensures that $M$ is a group if, and only if, $M$ is not dense in~$\bR$.
+
+  $\ref{ass:Nb-Na:Nb-Na} \implies \ref{ass:Nb-Na:irrational}$.
+  Assume that $\rho$ is rational.
+  Then, there exists $n \in \bZ \setminus \{ 0 \}$ such that $n \rho  \in \bZ$.
+  It follows $M \subseteq \abs{n}^{- 1} \bZ$, and thus $M$ is not dense in~$\bR$.
+  
+  $\ref{ass:Nb-Na:irrational} \implies \ref{ass:Nb-Na:Za-Nb}$.
+  Assume that $M'$ is an additive group.
+  Then, $- \rho$ is an element of $M'$,
+  and thus there exists $n \in \bN$ and $m \in \bZ$ such that $- \rho = n \rho + m$.
+  It follows $\rho = - {(n + 1)}^{-1} m$,
+  whence $\rho^{-1}$ is rational.
+\end{proof}
+\begin{theorem} \label{thm:Nb-Na}
+  For each $\rho \in \Rpos$, the following three assertions are equivalent:
+  \begin{enumerate}
+  \item $\bN - \bN \rho$ is dense in $\bR$, \label{ass:Nb-Na:Za-Nb}
+  \item $\bN \rho  - \bN$ is dense in $\bR$, and \label{ass:Nb-Na:Nb-Na}
+  \item $\rho$ is irrational. \label{ass:Nb-Na:irrational}
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  Put $M = \bN \abs{\rho} - \bN$ and $M' = \bN \rho + \bZ$.
+
+  $\ref{ass:Nb-Na:Za-Nb} \implies \ref{ass:Nb-Na:Nb-Na}$.
+  Assume that $M$ is not dense in~$\bR$.
+  Since  $M$ is an additive monoid that straddles $0$ and
+  the additive group generated by $M$ is equal to that generated by $M'$.
+  Moreover,
+  Theorem~\ref{thm:additive-submonoid-R} ensures that $M$ is a group if, and only if, $M$ is not dense in~$\bR$.
+
+  $\ref{ass:Nb-Na:Nb-Na} \implies \ref{ass:Nb-Na:irrational}$.
+  Assume that $\rho$ is rational.
+  Then, there exists $n \in \bZ \setminus \{ 0 \}$ such that $n \rho  \in \bZ$.
+  It follows $M \subseteq \abs{n}^{- 1} \bZ$, and thus $M$ is not dense in~$\bR$.
+  
+  $\ref{ass:Nb-Na:irrational} \implies \ref{ass:Nb-Na:Za-Nb}$.
+  Assume that $M'$ is an additive group.
+  Then, $- \rho$ is an element of $M'$,
+  and thus there exists $n \in \bN$ and $m \in \bZ$ such that $- \rho = n \rho + m$.
+  It follows $\rho = - {(n + 1)}^{-1} m$,
+  whence $\rho^{-1}$ is rational.
+\end{proof}
+
+
+ 
+\begin{lemma}
+  For every $a$, $b \in \bR$, 
+  $0$ is a limit point of $\bZ a + \bZ b$ if, and only if,
+  $0$ is a limit point of $\bN\abs{a} - \bN \abs{b}$.  
+\end{lemma}
+
+
+\begin{proof}
+  Put
+  $G  = \bZ a+ \bZ b$ and $M  = \bN\abs{a} - \bN \abs{b}$.
+  The ``if part'' is clear because $M \subseteq G$.
+  Let us now prove the ``only if part''.
+  It suffices to check that for each $g \in G \setminus \{ 0 \}$,
+  there exists $g' \in M \setminus \{ 0 \}$ such that $\abs{g'} \le \abs{g}$.
+  Let $g \in G \setminus \{ 0 \}$. 
+  Let $m$, $n \in \bZ$ be such that $g = m a + n b$. 
+  First, assume $(m a)(n b) > 0$.
+  Then, we have $ \abs{g} = \abs{m} \abs{a} + \abs{n} \abs{b}$,
+  and thus $\abs{m} \abs{a}$ (or $- \abs{n} \abs{b}$ or $\abs{a}$ or $- \abs{b}$) is a suitable choice for~$g'$.
+  Second, assume $(m a)(n b) \le 0$.
+  Then, set $g' = \abs{m} \abs{a} - \abs{n} \abs{b}$.
+  By construction, we have $g' \in M$ and $\abs{g} = \abs{g'}$.
+  Therefore, $g'$ satisfies the desired properties.
+  \end{proof} 
+
+\begin{lemma}
+  Let $M$ be an additive submonoid of $\bR$ such that $0$ is a limit point of~$M$.
+  The closure of $M$ in $\bR$ 
+  If $0$ is a limit point of $M$ then 
+  Let $a$, $b \in \bR$ be such and let $m$, $n \in \bZ$ be such that $(a + b)(m a + n b) \ne 0$.
+  There exists $m'$, $n' \in \bN$ such that $0 < \abs{m' a + n' b} \le \thalf \abs{m a + n b}$. 
+\end{lemma}
+
+
+\begin{lemma}
+  Let $a$, $b \in \bR$ be such that $a + b \ne 0$.
+  For every $m$, $n \in \bZ$ such that $m a + n b \ne 0$,
+  there exists $m'$, $n' \in \bN$ such that $0 < \abs{m' a + n' b} \le \thalf \abs{m a + n b}$. 
+\end{lemma}
+
+\begin{proof}
+  Put
+  $G  = \bZ a+ \bZ b$,
+  $M  = \bN\abs{a} - \bN \abs{b}$,
+  $M' = \bN\abs{a} + \bN \abs{b}$, and 
+  $\delta = \min \left\{ \abs{a}, \abs{b} \right\}$.
+  %, and $V_\epsilon = \Vepsilon$ for every $\epsilon \in \Rpos$.
+  The ``if part'' is clear because $M \subseteq G$.
+  Let us now prove the ``only if part''.
+  It suffices to check that for each $g \in G \setminus \{ 0 \}$,
+  there exists $m \in M$ such that $0 < \abs{m} \le \abs{g}$. 
+  % $\left\{ g, - g, \abs{a}, \abs{b} \right\}
+  Let $g \in G \setminus \{ 0 \}$.
+  If $\abs{g} \ge \abs{a}$ then $\abs{a}$ is a suitable choice for $m$;
+  if $\abs{g} \ge \abs{b}$ then $- \abs{b}$ is a suitable choice for~$m$.
+  It remains to deal with the case $\abs{g} < \delta$.
+  Since $\delta$ is the least non-zero element of $M'$, $g$ is not an element of $M'$;
+  since $- \delta$ is the greatest non-zero element of $- M'$, $g$ is not an element of $-M'$ either.
+  Besides, $G$, $M$, and $M'$ satisfy 
+  $$
+  G = \bZ \abs{a} + \bZ \abs{b}  = M \cup (- M) \cup M' \cup (- M') \,,
+  $$
+  whence $g \in M \cup (- M)$, or equivalently, $\{ - g, g \} \cap M \ne \emptyset$.
+  Any element of $\{ -g, g \} \cap M$ is a suitable choice for~$m$. 
+  Therefore, the ``only if part'' holds true.
+\end{proof}
+
+
+
+Let $M$ be an additive submonoid of $\bR$ such that $\bN \subseteq M$.
+Either $M = \bZ$ or $(M \setminus \bZ) \cap \Rnpos \ne \emptyset$.
+
+\begin{lemma}
+  Let $M$ be an additive submonoid of $\bR$ that straddles~$0$.
+  For each $x \in M \setminus \{ 0 \}$,
+  $M \ne \bZ x$ implies
+  $M \cap \left[ - \thalf \abs{x}, + \thalf \abs{x} \right] \ne \{ 0 \}$.
+  %$M \cap  x \left[ - \thalf, + \thalf  \right] \ne \{ 0 \}$.
+\end{lemma}
+
+\begin{proof}
+  Let $x \in M \setminus \{ 0 \}$ be such that $M \ne \bZ x$.
+  Put $M_1 = x^{-1} M$ and $I = \left[ - \thalf,  + \thalf \right]$.
+  % $$
+  % V = \left\{ v \in M_1 : 0 < \abs{v} < \thalf \right\} \, .
+  % $$
+  Our task is to prove $M \cap x I \ne \{ 0 \}$, or equivalently, $M_1 \cap I \ne \{ 0 \}$.
+  By construction,  $M_1$ is an additive monoid that straddles $0$,
+  $M_1$ is not equal to $\bZ$, and 
+  $M_1$ contains $\bN$ as a subset.
+  Let $y \in M$.
+  There exists $n \in \bZ$ such that $y - n \in I$. 
+   
+  First, assume $- 1 \in M_1$.
+  Then, $\bZ$ is a proper subset of~$M_1$.
+  Moreover, $M_1$ contains $y - \rho(y)$ as an element for each $y \in M \setminus \bZ$.
+  Therefore $V$ is non-empty.
+  Second, assume $- 1 \notin M_1$.
+  For each $y \in M$ such that $y < 0$,
+  $- \rho(y) \in \bN$, $y - \rho(y) \in M$
+  
+  Then, for every $y \in M$ and every $n \in \bN$, $y + n x = 0$ is equivalent to $y = n = 0$.
+  Since $M$ straddles $0$,
+  there exists $y \in M$ such that $y < 0$.
+  
+  Then,  is a non-positive integer,
+  and thus $V \cup \{ 0 \}$ contains $\rho(y x^{-1}) x$ as an element.
+
+
+  
+  
+  Moreover, 
+  It follows that $V$ contains $y - n x$ as an element.
+\end{proof}
+
+
+
+\begin{theorem} \label{thm:Na+Nb-groupe}
+  For every $a$, $b \in \bR \setminus \{ 0 \}$,
+  $\bN a + \bN b$ is an additive group if, and only if, $a b^{-1}$ is negative and rational.
+\end{theorem}
+
+
+
+\begin{proof}
+  Put $M = \bN a + \bN b$.
+  Assume that $M$ is an additive group.
+  Then, $M$ contains $- (a + b)$ as an element,
+  so there exist $m$, $n \in \bN$ such that $- (a + b) = m a + n b$.
+  It follow $a b^{-1}  = - (n + 1) {(m + 1)}^{-1} \in \bQ_{< 0}$.
+  Therefore,  the ``only if part'' holds true.
+  It remains to prove the ``if part''.
+  Assume  $ab^{-1}  \in \bQ_{< 0}$.
+  Then, there exist $m$, $n \in \bNast$ such that $ab^{-1} = - n m^{-1}$, or equivalently, $m a + n b = 0$.
+  It follows $- a = (m - 1) a + n b \in M$ and $- b = m a + (n - 1) b \in M$,
+  whence $\{ - a, - b \} \subseteq M$, and consequently, $\{ a, b \} \subseteq - M$.
+  Besides, $M$ and $- M$ are the additive monoids generated by $\{ a, b \}$ and $\{  - a, - b  \}$, respectively.
+  Therefore, we have $M = - M$, and thus $M$ is an additive group.
+\end{proof}
+
+
+
+\begin{lemma} \label{lem:M-rateau}
+  Let $M$ be an additive submonoid of $\bR$ and let $\epsilon \in \Rpos$ be such that 
+  $\left] 0, \epsilon \right[$ and $M$ intersect.
+  Then, $\left]0, \epsilon \right[ + M$ equals $\Rpos$ or~$\bR$.
+\end{lemma}
+
+\begin{proof}
+%  Since the two assertions of the lemma are clearly equivalent, we only prove the first one.
+  Put $M_\epsilon =  \left]0, \epsilon \right[ + M$.
+  Assume that $M $ and $\left] 0, \epsilon \right[$ intersect.
+  Then, there exists $a \in M$ such that $0 < a < \epsilon$.
+  For each $n \in \bN$, we have 
+  $$
+  \left]n a, (n + 1) a \right]
+  = \left]0, a \right] + n a 
+  \subseteq \left] 0, \epsilon \right[ +  n a 
+  \subseteq M_\epsilon \,,
+  $$
+  whence 
+  $$
+  \Rpos = \bigcup_{n \in \bN}  \left]n a, (n + 1) a \right] \subseteq M_\epsilon \, .
+  $$
+  Therefore, $M \subseteq \Rnneg$ implies $M_\epsilon =  \Rpos$.
+  Now, assume $M \not \subseteq  \Rnneg$.
+  Then, there exists  $b \in M$ such that $b < 0$.
+  For each $n \in \bN$, we have 
+  $$
+  \left]n b, \infty \right[ = \Rpos + nb \subseteq M_\epsilon + M = M_\epsilon \,, 
+  $$
+  whence 
+  $$
+  \bR = \bigcup_{n \in \bN} \left] n b, \infty \right[ =  M_\epsilon \, . 
+  $$
+  % For each $n \in \bN$, adding $n b$ to each side of inclusion $\Rnneg \subseteq M_\epsilon$ yields
+  % $\left[n b, \infty \right[ \subseteq M_\epsilon$, whence
+\end{proof}
+
+Let $S \subseteq \bR$ and let $x \in \bR$.
+We say that $x$ is a \emph{limit point} of $S$ if
+for each $\epsilon \in \Rpos$, there exists $s \in S$ such that
+$0 < | x - s | < \epsilon$.
+% dense
+% topological closure
+
+
+\begin{theorem} \label{thm:closure-0-limit}
+  Let $M$ be an additive submonoid of $\bR$ such that $0$ is a limit point of~$M$.
+  The topological closure of $M$ in $\bR$ equals $\Rnpos$, $\Rnneg$, or~$\bR$.
+\end{theorem}
+
+ %  Put  $V_\epsilon = \left]- 1, + 1 \right[$.
+
+\begin{proof}
+  Let $\epsilon \in \Rpos$.
+  Put  $M_\epsilon = \left]- \epsilon, + \epsilon \right[ + M$.
+  Since $0$ is a limit point of $M$, 
+  $\left]0, 2 \epsilon \right[ \cap M$ or $\left]0, 2 \epsilon \right[ \cap (- M)$ is non-empty,
+  and thus Lemma~\ref{lem:M-rateau} ensures that at least one of the following four equalities holds true:
+  $\left]0, 2 \epsilon \right[ + M = \Rpos$,
+  $\left]0, 2 \epsilon \right[ + M = \bR$,
+  $\left]0, 2 \epsilon \right[ - M = \Rpos$, or
+  $\left]0, 2 \epsilon \right[ - M = \bR$.
+  Besides,
+  $M_\epsilon$ can be written as
+  $M_\epsilon
+  =  \left(\left]0, 2\epsilon \right[ + M \right) - \epsilon
+  = - \left( \left]0, 2 \epsilon \right[ - M \right) +  \epsilon$.
+  Therefore,  $M_\epsilon$ equals
+  $\left]- \infty, \epsilon \right[$,  $\left]- \epsilon, \infty \right[$, or~$\bR$.
+  Since $M$ is bounded from below (resp.~above) if, and only if, $M_\epsilon$ is bounded from below (resp.~above), 
+ $M_\epsilon$ is given by
+ $$
+ M_\epsilon  =
+  \begin{cases}
+    \left]- \infty, \epsilon \right[ & \text{if $M$ is bounded from above,} \\
+    \left]- \epsilon, \infty \right[ & \text{if $M$ is bounded from below, and} \\
+    \bR & \text{otherwise.}    
+  \end{cases}
+  $$
+  Since the topological closure of $M$ in $\bR$ equals $\bigcap_{\epsilon \in \Rpos} M_\epsilon$,
+  the theorem holds true. 
+\end{proof}
+
+
+
+\begin{theorem} \label{thm:rho-dense-01}
+  For each $\rho \in \bR$, 
+   $\left\{ n \rho - \floor{n \rho} : n \in \bN \right\}$ is dense in  $[0, 1]$
+  if, and only if, $\rho$ is irrational.
+\end{theorem}
+
+\begin{proof}
+  Put $a_n =  n \rho  - \floor{n \rho}$ for each $n \in \bZ$ and $A = \left\{ a_n : n \in \bN \right\}$.
+  Assume $\rho \in \bQ$.
+  Then, there exists $n \in \bNast$ such that $n \rho \in \bZ$.
+  It follows $A \subseteq \seg{0}{n - 1} n^{- 1}$, 
+  and thus $A$ is not dense in $\left[0, 1 \right]$.
+  Therefore, the ``if part'' holds true.
+  It remains to prove the ``only if part''.
+  Put $M = \bN \rho + \bZ$.
+  Assume $\rho \notin \bQ$.
+  Let $n$ be a large positive integer.
+  The pigeonhole principle ensures that there exist $i$, $j \in \seg{0}{n}$ and $k \in \seg{1}{n}$
+  such that $i < j$ and $\{ a_i, a_j \} \subseteq \left[ (k - 1)n^{-1}, kn^{-1} \right[$.
+  By construction,
+  $a_j - a_i$ is an element of $M$ and $\abs{a_j - a_i}$ is less than $n^{-1}$.
+  Moreover, $a_j - a_i$ is non-zero because $\rho \notin \bQ$. 
+  Therefore, $0$ is a limit point of~$M$.
+  Since $M$ is an additive monoid that contains both $+ 1$ and $- 1$ as elements, 
+  Theorem~\ref{thm:closure-0-limit} ensures that $M$ is dense in~$\bR$.
+  Since $A = M \cap \left[0, 1 \right[$, $A$ is dense in $[0, 1]$.
+\end{proof}
+
+
+
+\begin{exercise}
+  Prove that for each $\rho \in \bR$,
+  $\left\{ \ceil{n \rho} - n \rho : n \in \bN \right\}$ is dense in $[0, 1]$
+  if, and only if, $\rho$ is irrational.  
+\end{exercise}
+
+% \begin{proof}
+%   $$
+%   \ceil{ - x} = - \floor{x} 
+%   $$
+% \end{proof}
+
+\begin{exercise}
+  Prove that for each bounded $X \subseteq \bR$,
+  $0$ is a limit point of $X - X$ if, and only if, $X$ is infinite.
+\end{exercise}
+
+% \begin{proof}
+%   Assume that $X$ is finite.
+%   Then, $X - X$ is also finite, and thus $X - X$ has no limit point in~$\bR$.
+%   Therefore, the ``only if part'' holds true.
+%   It remains to prove the ``if part''.
+%   Let $a$, $b \in \bR$ be such that $X \subseteq \left[a, b \right[$.
+%   Let $\epsilon \in \Rpos$.
+%   Put
+%   $I_k = \left[ k \epsilon, (k + 1) \epsilon \right[$ for each $k \in \bZ$.
+%   Since
+%   $$\left[a, b \right[ = \bigcup_{k = 0}^n I_k$$
+%   $$
+%   X =  \bigcup_{k = 0}^n X \cap I_k 
+%   $$
+%   Assume that $X$ is infinite.
+%   Since the union of $n$ finite sets is finite, 
+%   there exists $k \in \seg{0}{n}$ such that $X \cap I_k$ is infinite.
+%   In particular, there exists 
+% \end{proof}
+
+\begin{theorem} \label{thm:Na+Nb-dense}
+   For every $a$, $b \in \bR \setminus \{ 0 \}$,
+   $\bN a + \bN b$ is dense in $\bR$ if, and only if, $a b^{-1}$ is negative and irrational.
+ \end{theorem}
+
+\begin{proof}
+  Put $\rho = - a b^{-1}$ and $M = \bN \rho - \bN$.
+  Since $- b M = \bN a + \bN b$,
+  our task is to prove that $M$ is dense in $\bR$
+  if, and only if,
+  $\rho$ is positive and irrational.
+  %%%%
+  First, assume that $\rho$ is non-positive.
+  Then, $M$ is a subset of $\Rnpos$, and thus $M$ is not dense in~$\bR$.
+  %%%%
+  Second, assume that $\rho$ is rational.
+  Then, there exists $n \in \bNast$ such that $n \rho  \in \bZ$.
+  It follows $M \subseteq \bZ n^{-1}$, and thus $M$ is not dense in~$\bR$.
+  %%%
+  Hence,  the ``only if part'' holds true.
+  It remains to prove the ``if part''.
+  Assume that $\rho$ is positive and irrational.
+  Since $\rho$ is positive, $n \rho - \floor{n \rho}$ is an element of $M$ for every $n \in \bN$,
+  and thus Theorem~\ref{thm:rho-dense-01} ensures that the topological closure of $M$ in $\bR$ contains
+  $[0, 1]$.
+  In particular, $0$ is a limit point of~$M$.
+  Moreover, $M$ is an additive submonoid of $\bR$ that contains $\rho$ and $- 1$ as elements.
+  Therefore, Theorem~\ref{thm:closure-0-limit} ensures that $M$ is dense in~$\bR$.
+\end{proof}
+
+
+\begin{lemma} \label{lem:limit-point-half}
+  For each $X \subseteq \bR \setminus \{ 0 \}$,
+  $0$ is a limit point of $X$ if, and only if, the following two conditions are met:
+  \begin{enumerate}
+  \item \label{ass:limit-point-half:non-empty}
+    $X$ is non-empty and
+  \item  \label{ass:limit-point-half:half}
+    for each  $x \in X$, there exists $x' \in X$ such that $\abs{ x' } \le \thalf  \abs{ x }$.
+  \end{enumerate}  
+\end{lemma}
+
+\begin{proof}
+  The ``only if part'' is clear.
+  It remains to prove  the ``if part''.
+  Put $V_n = \left\{ x \in X :  \abs{x} <  2^n \right\}$
+  for each $n \in \bZ$.
+  Assume that both considered conditions are met.
+  On the one hand,  $V_n$ is non-empty for every large enough $n \in \bZ$ because $X \ne \emptyset$.
+  On the other hand,  $V_n \ne \emptyset$ implies $V_{n - 1} \ne \emptyset$ for each $n \in \bZ$ because of
+  condition~\ref{ass:limit-point-half:half}.
+  Therefore, $V_n$ is non-empty for every $n \in \bZ$, and thus, $0$ is a limit point of~$X$.
+\end{proof}
+
+For every $x \in \bR$ and every $n \in \bZ$,
+$\abs{x - n} \le \thalf$ is equivalent to $n \in \left\{ \ceil{x - \thalf} , \floor{x + \thalf} \right\}$.
+% For every $x \in \bR \setminus \bZ \tfrac{1}{2}$,
+% $\ceil{x - \frac{1}{2}} = \floor{x + \tfrac{1}{2}}$ is equivalent to $2 x \in \bZ$.
+
+\begin{theorem} \label{thm:additive-subgroup-R}
+  Let $G$ be an additive subgroup of~$\bR$.
+  Either $G$ is dense in $\bR$ or there exists $g \in G$ such that $G = \bZ g$.
+\end{theorem}
+
+\begin{proof}
+  If there exists $g \in G$ such that $G = \bZ g$ then $G$ is not dense in~$\bR$.
+  It remains to prove the converse.
+  Put $V_n = \left\{ x \in G :  0 < x <  2^n \right\}$   
+  for each $n \in \bZ$.
+  %Note  that $0$ is a limit point of $G$ if, and only if, $V_n$ is non-empty for every $n \in \bZ$.
+  Assume that $\bZ g$ is a proper subset of $G$ for every $g \in G$.
+  Let us first check that $0$ is a limit point of~$G$.
+    Since  $\{ 0 \} = \bZ 0$ is proper subset of $G$,  there exists $g_0 \in G$ such that $g_0 \ne 0$.
+  It follows that $V_n$ contains $| g_0 |$ as an element for every integer $n > \log_2 | g_0 |$.
+  % Moreover, let $n \in \bZ$ and let $x \in V_n$.
+  $$
+  U_n = \left\{  y  -   \rho(y x^{-1}) x   : (x, y) \in V_n \times (G \setminus \bZ x ) \right\} 
+  $$
+
+  Moreover, let $x \in G \setminus \{ 0 \}$.
+  By assumption, there exists $y \in G$ such that $y \notin \bZ x$, 
+  and subsequently, there exists $k \in \bZ$ such that  $\abs{ y x^{-1} - k  } \le \thalf$.
+  Put $x' = y - k x$.
+  By construction, $x'$ satisfies $x' \in G \setminus \{ 0 \}$ and $\abs{ x' } \le \thalf \abs{ x }$.
+  Therefore, $V_n \ne \emptyset$ implies $V_{n - 1} \ne \emptyset$ for every $n \in \bN$.
+  We thus proved that 
+  
+  
+  Moreover, $X$ is non-empty because $G \ne \bZ 0$.
+  Therefore, Lemma~\ref{lem:limit-point-half} ensures that $0$ is a limit point of $X$,
+  or equivalently, a limit point of~$G$.
+  Now, since  $G$ is an additive submonoid of $\bR$ and since $- G = G \ne \bZ 0 = \{ 0 \}$,
+  Theorem~\ref{thm:closure-0-limit} ensures that $G$ is dense in~$\bR$.
+\end{proof}
+
+
+
+\begin{theorem}[\cite{AbelsManoussos2012}] \label{thm:additive-submonoid-R}
+  Let $M$ be an additive submonoid of $\bR$ such that $M \ne \{ 0 \}$.
+  Exactly one of the following four assertions holds true:
+  $M \subseteq \Rnneg$,
+  $M \subseteq \Rnpos$,
+  there exists $m \in M$ such that $M = \bZ m$, or
+  $M$ is dense in~$\bR$.
+\end{theorem}
+
+\begin{proof}
+  Clearly, at most one of the four considered assertions holds true.
+  It remains to prove that at least one holds true.
+  Assume  $M \not \subseteq \Rnneg$ and $M \not \subseteq \Rnpos$.
+  Then there exist $a$, $b \in M$ such that $a < 0 < b$.
+  
+  Let us first consider the case where there exist $a$, $b \in M$ such that $a < 0 < b$ and $a b^{-1} \notin \bQ$.
+  Then, Theorem~\ref{thm:Na+Nb-dense} ensures that $\bN a + \bN b$ is dense in~$\bR$.
+  Since $\bN a + \bN b \subseteq M$,
+  $M$ is also dense in $\bR$, and thus we are done with the first case.
+  Let us now assume $M \not \subseteq \Rnneg$, $M \not \subseteq \Rnpos$,
+  and that for every $a$, $b \in M$,
+  $a < 0 < b$ implies $a b^{-1} \in \bQ$.
+  Since $M \not \subseteq \Rnneg$, there exists $a \in M$ such that $a < 0$;
+  since $M \not \subseteq \Rnpos$, there exists $b \in M$ such that $0 < b$.
+  Let $x \in M$.
+  Theorem~\ref{thm:Na+Nb-groupe} ensures
+  $- x \in \bN a + \bN x$ if $x > 0$ and
+  $- x \in \bN x + \bN b$ if $x < 0$.
+  Either way, $M$ contains $- x$ as an element.
+  Therefore, $M$ is an additive subgroup of $\bR$,
+  so it follows from Theorem~\ref{thm:additive-subgroup-R} that we are done.
+\end{proof}
+
+\begin{proof}
+  Clearly, at most one of the four considered assertions holds true.
+  It remains to prove that at least one holds true.
+  Let us first consider the case where there exist $a$, $b \in M$ such that $a < 0 < b$ and $a b^{-1} \notin \bQ$.
+  Then, Theorem~\ref{thm:Na+Nb-dense} ensures that $\bN a + \bN b$ is dense in~$\bR$.
+  Since $\bN a + \bN b \subseteq M$,
+  $M$ is also dense in $\bR$, and thus we are done with the first case.
+  Let us now assume $M \not \subseteq \Rnneg$, $M \not \subseteq \Rnpos$,
+  and that for every $a$, $b \in M$,
+  $a < 0 < b$ implies $a b^{-1} \in \bQ$.
+  Since $M \not \subseteq \Rnneg$, there exists $a \in M$ such that $a < 0$;
+  since $M \not \subseteq \Rnpos$, there exists $b \in M$ such that $0 < b$.
+  Let $x \in M$.
+  Theorem~\ref{thm:Na+Nb-groupe} ensures
+  $- x \in \bN a + \bN x$ if $x > 0$ and
+  $- x \in \bN x + \bN b$ if $x < 0$.
+  Either way, $M$ contains $- x$ as an element.
+  Therefore, $M$ is an additive subgroup of $\bR$,
+  so it follows from Theorem~\ref{thm:additive-subgroup-R} that we are done.
+\end{proof}
+
+
+  
+\begin{exercise}
+  Let $M$ be a finitely generated additive submonoid of~$\bR$.
+  Prove that every bounded subset of $M$ is finite or that $M$ is dense in~$\bR$.  
+\end{exercise}
+
+
+ \begin{exercise}
+   Let $\alpha \in \Rpos \setminus \bQ$.
+   For each $x \in  \Rnneg$, let $f(x)$ denote the cardinality of
+   $\left( \bN \alpha + \bN  \right) \cap [0, x]$.
+   Prove
+   $$
+   f(n) = \sum_{k = 0}^n \left( 1 + \floor{\alpha^{-1} k} \right) 
+   $$
+   for each $n \in \bN$ and  $f(x) \sim \tfrac{1}{2 \alpha} x^2$ as $x \to \infty$. 
+ \end{exercise}
+
+For each  $X \subseteq \bR$, put  
+$$
+D(X) = \left\{ \abs{x - y} : (x, y) \in X \times X \right\} = (X - X) \cap \Rnneg \, . 
+$$
+
+\begin{exercise}
+  Prove that inclusion $D(X) \subseteq D(D(X))$ holds true for every $X \subseteq \bR$.
+\end{exercise}
+
+
+
+\begin{theorem}
+  Inclusionholds true for every $X \subseteq \Rnneg$.
+  $D(X) \subseteq X$ implies $(- X) \cap \Rnneg \subseteq  D(X) = X \cap \Rnneg$.
+\end{theorem}
+
+\begin{proof}
+  Clearly,  $X = \emptyset$ implies $D(X) = \emptyset$.
+  Assume  $D(X) \ne \emptyset$.
+  implies $0 \in D(X)$ because $\abs{x - x} = 0$ for any $x \in X$.
+  Assume that 
+  It follow $D(X) = \left\{ | x - 0 | : x \in D(X) \right\} \subseteq D(D(X)) \subseteq D(X)$.
+  Assume 
+ \end{proof} 
+
+\begin{exercise}
+  Prove that inclusion  $D(X) \subseteq D(D(X))$ and equality
+  $
+  D(X + X) = \left( (D(X) + D(X) \right) \cup D(D(X))
+  $
+  hold true for each $X \subseteq \bR$.
+  Note that in the case where $X = \{ 0, 1, 5 \}$, both $D(X) + D(X)$ and $D(D(X))$ are proper subsets of $D(X + X)$.
+\end{exercise}
+
+\begin{proof}
+  % Let $u \in D(X + X)$.
+  % There exist $x$, $x'$, $y$, $y' \in X$ such that $u = (x + y) - (x' + y')$.
+  % If $x \ge x'$ and $y \ge y'$ then
+  % both $x - x'$ and $y - y'$ belong to $D(X)$ and 
+  % $u = (x - x') + (y - y') \in D(X) + D(X)$.
+  % I $x \ge x'$ and $y \le y'$ then 
+  % $$
+  % We have
+  % $$
+  %  (X + X) - (X + X)  = (X - X) + (X - X) = (X - X) - (X - X)
+  % $$
+  % Since $D(X) \subseteq X - X$, we have 
+  % $$
+  % D(X) + D(X) \subseteq (X - X) + (X - X) = (X + X) - (X + X) 
+  % $$
+  % and
+  % $$
+  % D(X) - D(X) \subseteq (X - X) - (X - X)  = (X + X) - (X + X)
+  % $$
+  % and 
+  % $$
+  % D(X) + D(X) \subseteq \Rnneg + \Rnneg = \Rnneg \,, 
+  % $$
+  % It follows
+  %   whence
+  % $$
+  % D(X) + D(X) \subseteq \left(  (X + X) - (X + X)  \right) \cap \Rnneg = D(X + X) \, . 
+  % $$
+\end{proof}
+
+\begin{lemma}
+  Let $X \subseteq \left[0, \infty \right[$ be such that $D(X) \subseteq X$.
+  For each $x \in X \setminus \{ 0 \}$, the additive subgroup of $\bR$ generated by $X$ is equal to
+  $\left[0, x \right[ \cap X + \bZ x$.
+\end{lemma}
+
+\begin{proof}
+  Let $x \in X$ be fixed.
+  Put $G = \left[0, x \right[ \cap X + \bZ x$.
+  Clearly,  the additive subgroup of $\bR$ generated by $X$ contains $G$ as a subset.
+  Moreover, for each $y \in Y$, $y - \floor{y x^{-1}} x$ is an element of $G \cap $
+  It remains to prove that $G$ is an additive subgroup of~$\bR$.
+  Let $\pi\colon \bR \to \bR / \bZ x$ denote the natural map.
+  Since $G = \pi^{-1}(\pi(X)))$, it suffices to check that $\pi(X)$ is an additive subgroup of $\bR / \bZ x$.
+  Let $y$, $z \in X$.
+  If  $y \ge z$ then $y - z \in X$
+\end{proof}
+
+
+
+
+\begin{lemma}
+  Let $G$ be an additive subgroup of $\bR$,  let $h \in G \cap \Rpos$, and let $X \subseteq \left[0, h \right[$.
+  Then, $G = X + \bZ h$ is equivalent to $X = \left[0, h \right[ \cap G$.
+\end{lemma}
+
+\begin{proof}
+  First, assume $X = \left[0, h \right[ \cap G$.
+  Then,  $X + \bZ h$  is a subset of~$G$.
+  Moreover, let $g \in G$.
+  Put $n =  \floor{g h^{-1}}$.
+  By construction, $g - n h$ is an element of $X$,
+  and thus  $g = (g - nh) + nh$ is an element $X + \bZ h$.
+  It follows $G = X + \bZ h$.
+  It remains to prove that  $G = X + \bZ h$ implies  $X = \left[0, h \right[ \cap G$.
+  Let $x \in X$ and let $n \in \bZ$.
+  Since $x \ge 0$, $n \ge 1$ implies $x + n h > h$;
+  since $x < h$, $n \le - 1$ implies $x + n h < 0$.
+  Therefore, $x + n h \in \left[0, h \right[$ is equivalent to $n = 0$.
+  It follows $\left[0, h \right[ \cap (X + \bZ h)  = X$,
+  and thus the desired implication holds true.
+\end{proof}
+
+\begin{theorem} \label{thm:G-inter-0b}
+  For each $X \subseteq \Rnneg$, the following two assertions are equivalent:
+  \begin{enumerate}
+  \item Equality $X = D(X)$ holds true.
+  \item
+    There exist $b \in [0, \infty]$ and an additive subgroup $G$ of $\bR$ such that
+    $X = [0, b] \cap G$ or $X = \left[0, b \right[ \cap G$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  Let $x \in X$ be fixed.
+  Put $Y_x = \left[0, x \right[ \cap X$ and $G_x = Y_x + \bZ x$.
+%  Let us first prove that $G_x$ is an additive subgroup of~$\bR$.
+  Since $x \in G_x$, $G_x$ is non-empty.
+  Moreover, let $g_1$, $g_2 \in G$.
+%  Moreover, let $g_1$, $g_2 \in G$.
+  For each $i \in \{ 1, 2 \}$, there exists $(y_i, n_i) \in  Y_x \times \bZ$ such that $g_i = y_i + n_i x$.
+  % There exist $(y, n) \in  Y_x \times \bZ$ such that $g = y + n x$ and
+  % there exist $(y', n') \in  Y_x \times \bZ$ such that $g' = y' + n' x$.
+  % There exist $y$, $z \in  [0, x] \cap X$ and $p$, $q \in \bZ$ such that
+  % $g = y + p x$
+  % and
+  % $h = z + q x$.
+  Clearly,
+  $y_1 \ge y_2$ implies $y_1 - y_2 \in Y_x$,
+  $y_1 \le y_2$ implies $\{ y_2 - y_1, x - (y_2 - y_1) \} \subseteq Y_x$, and
+  we have 
+  $$
+  g_1 - g_2 = (y_1 - y_2) + (n_1 - n_2) x = (x - (y_2 - y_1)) + (n_1 - n_2 - 1) x \,.
+  $$
+  Therefore, $g_1 - g_2$ belongs to $G_x$, and thus $G_x$ is an additive subgroup of~$\bR$.
+  Now, Lemma~\ref{ } ensures $Y_x = \left[0, x \right[ \cap G_x$.
+\end{proof}
+ 
+\begin{theorem}
+  For every
+  $G \cap \left[0, b \right[ = G \cap \left[0, b \right[$
+\end{theorem}
+
+
+If $G \cap [0, b] = \{ 0 \}$ then 
+If $b = 0$ and $G = \{ 0 \}$ then  $X = \left[0, b \right[$
+Since  $[0, b] \cap \bQ \ne \left[0, b \right[ \cap \bQ$ is equivalent to $b \in \bQ$,
+the ``or'' in the second assertion of Theorem~\ref{thm:G-inter-0b} may or may not be exclusive.
+
+Note that $\bQ$ is an additive subgroup of $\bR$ 
+If $G = \bQ$ and $b = \sqrt{2}$ then $[0, b] \cap G = \left[0, b \right[ \cap G$.
+If $X = \{ 0, 1 \}$  then $G = \bZ$ and $X = [0, b] \cap G$
+
+\begin{theorem}
+  If $M$ is an additive submonoid of $\bR$ then $D(M)$ is an additive submonoid of $\bR$ and $D(D(M)) = D(M)$.
+\end{theorem}
+
+\begin{proof}
+\end{proof} 
+
+
+
+
+
+
+
+
+
+\begin{theorem}[\cite{Bourbaki-Algebra-I}]
+  For each additive subgroup $G$ of $\bZ$, there exists a unique $g \in \bN$ such that $G = \bZ g$.
+\end{theorem}
+
+For each subset $X \subseteq \bZ$,
+define $\gcd(X)$ as the unique element of $\bN$ such that
+the additive subgroup of $\bZ$ generated by $X$ equals $\bZ \gcd(X)$.
+$\gcd$ stands for \emph{greatest common divisor}.
+The following theorem shows that every additive submonoid of $\bZ$ is
+either an additive subgroup of  $\bZ$ or isomorphic to an additive submonoid of ~$\bN$.
+
+
+\begin{theorem} \label{thm:subsem-N-Z}
+  Let $M$ be an additive submonoid of $\bZ$ such that $M  \ne \{ 0 \}$.
+  Exactly one of the following three assertions holds true:
+  $M \subseteq \bN$, $- M \subseteq \bN$, or $M = \bZ \gcd(M)$.
+\end{theorem}
+
+\begin{proof}
+  Clearly, at most one of the three considered assertions holds true.
+  Assume $M \not \subseteq \bN$ and $- M \not \subseteq \bN$.
+  At least one element of $M$ is negative because $M \not \subseteq \bN$ and
+  at least one element of $M$ is positive because $ - M \not \subseteq \bN$,
+  so there exist $p$, $n \in M$ such that $n < 0 < p$.
+  Let $m \in M$. 
+  If $m \ge 0$ then
+  $\bN m + \bN n$ contains $- m$ as an element
+  because $- m$ can be written as $- m = (- n - 1) m + m n$;
+  if $m \le 0$ then
+  $\bN m + \bN p$ contains $- m$ as an element
+  because $- m$ can be written as $- m = (p - 1) m + (- m) p$.
+  Either way, $M$ contains $- m$ as an element.
+  Hence, $M$ is an additive subgroup of  $\bZ$,
+  or equivalently,
+  equality  $M = \bZ \gcd(M)$ holds true. 
+\end{proof}
+
+
+
+
+% \begin{example}
+%   Put $M = \bN -  \bN \sqrt{2}$.
+%   Clearly, $M$ is a subsemimodule of $\bR$.
+%   However, $M$ is not a subset of $\bRpos$,
+%   $- M$ is not a subset of $\bRpos$, and 
+%   $M$ is not a submodule of~$\bR$.
+% \end{example}
+
+  
+
+Note that our proofs of
+Theorems~\ref{thm:petit-rateau},
+\ref{thm:limit-point-half},
+\ref{thm:additive-subgroup-R}, and
+\ref{thm:additive-submonoid-R}
+do not involve any infinimum or supremum.
+
+
+\begin{theorem}
+  There exists $X \subseteq \bR$ such that $X$ is uniformly discrete and $X - X$ is not discrete.
+\end{theorem}
+
+\begin{proof}
+   Put   $x_n = 1 + n - n^{-1}$ for each $n \in \bNast$ and set  $X =  \{ 0 \} \cup \left\{ x_n : n \in \bNast \right\}$.
+  By construction, we have  $x_{n + 1} - x_n =  1 + n^{-1}{(n + 1)}^{-1}$ for every $n \in \bNast$.
+  It follows that $X$ is uniformly discrete and that $1$ is a limit point of $X - X$.
+  Since  $1 = x_1  - 0 \in   X - X$, $X - X$ is not discrete.
+\end{proof}
+
+
+\begin{theorem} \label{thm:discrete-dense}
+  There exists an additive submonoid $M$ of $\Rnneg$ such that
+  $M$ is a discrete and
+  $M - M$ is dense in~$\bR$.
+\end{theorem}
+
+\begin{proof} 
+  Put $X_n = \bN 2^{-n} \cap \left[n, \infty \right[$ for each $n \in \bN$ and set $M = \bigcup_{n \in \bN} X_n$.
+  First, we have
+  $0 \in X_0$ and
+  $X_m + X_n \subseteq X_{\max(\{ m, n \})}$ for every $m$, $n \in \bN$.
+  Therefore,
+  $M$ is an additive submonoid of $\Rnneg$.
+  Second, we have $\bZ 2^{-n} = X_n - X_n \subseteq M - M$ for every $n \in \bN$,
+  so Theorem~\ref{thm:petit-rateau} ensures that $M - M$ is dense in~$\bR$.
+  Third and last, let $k \in \bN$.
+  We have
+  $$X_n \cap [0, k] =  \seg{n 2^n}{k 2^n} 2^{- n}$$
+  for every $n \in \bN$,  whence
+  $$
+  M \cap [0, k] = \bigcup_{n = 0}^k X_n \cap [0, k] \,, 
+  $$
+  and subsequently, $M \cap [0, k]$ is finite.
+  Therefore, $M$ is discrete.
+\end{proof}
+
+
+
+
+
+\begin{theorem}
+  There exists an additive submonoid $M$ of $\bR$ such that 
+  $M$ is not a subset of $\Rpos$, 
+  $- M$ is not a subset of $\Rpos$, and 
+  $M$ is not an submodule of~$\bR$.
+\end{theorem}
+
+\begin{proof}
+  Set  $M = \bN -  \bN \sqrt{2}$.
+ \end{proof} 
+ 
+
+
+For every $a \in \bR$,
+every $b \in \Rpos$, and
+every $q \in \bZ$,
+the following three assertions are equivalent:
+$a - q b \in \left[0, b \right[$,
+$a - q b = a \bmod b$, and 
+$q = \floor{ a  b^{-1} }$.
+% q \le a / b < q + 1 (b > 0)
+% b q \le a < b q + b (b > 0)
+
+
+
+\begin{theorem}
+  Let $R$ be a commutative unital ring and
+  let $a$, $b$, $s$, $t$, $u$, $v$, $x \in R$ be such that $s a + t b = 1$.
+  Equality $x = u a + v b$ holds true if, and only if, there exists $q \in R$ such that
+  $u = x s - q b$  and $v = x t + q a$.
+\end{theorem}
+
+
+\begin{proof}
+  For each $q \in R$, put $u_q = x s - q b$ and $v_q = x t + q a$.
+  For every  $q \in R$, straightforward computations yield
+  $$u_q a +  v_q b = x (sa + tb) + q(ab - ba)  = x \cdot 1 + q \cdot 0  = x\, .$$
+  %= x (s a + t b) + q ( a b - b a)  = x \cdot 1 + q \cdot 0  = x \,,
+  so the `` if part'' holds true.
+  It remains to prove  the ``only if part''.
+  Assume  $x = u a + v b$.
+  Put
+  $$q = (v - v_0) s + (u_0 - u) t \, .$$
+  Straightforward computations yield 
+  \begin{align*}
+    q b
+    & = ((u a + v b) - (u_0 a + v_0 b)) s +  (s a + t b) (u_0 - u) \\
+    & = 0 \cdot s + 1 \cdot (u_0 - u) \\
+    & = u_0 - u \,, 
+  \end{align*}
+  whence $u = u_0 - qb  = u_q$.
+  In the same way, we obtain $v = v_q$, as desired.
+\end{proof}
+
+
+
+\begin{theorem}
+  Let $a$, $x \in \bZ$ and let $b \in \bNast$.
+  If  $\gcd(\{ a, b \}) = 1$ then there exists a unique $(u, v) \in \seg{0}{b - 1} \times \bZ$ such that $x = u a + v b$.
+\end{theorem}
+
+
+
+\end{document}
+  For every $a$, $b \in \bR$ and every $b \in \bR \setminus \{ 0 \}$, the following three assertions are equivalent:
+  \begin{enumerate}
+     \item $\bN a + \bN b$ is not an additive group, \label{ass:Nr-N:pas-group}
+     \item $\bN a + \bN b$ is dense in $\bR$, and \label{ass:Nr-N:dense}
+     \item $a b^{-1}$ is negative and irrational. \label{ass:Nr-N:irrational}
+  \end{enumerate}
