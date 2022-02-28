@@ -67,85 +67,112 @@
 
 
 
-\begin{lemma} \label{lem:I-cap-uI}
+% \begin{lemma}
+%   Let $a$, $h \in \Rnneg$.
+%   The additive closure of $\left]a, a + h \right[$ is equal to $\left] a, \infty \right[$
+%   if, and only if, $h$ is larger than~$a$.
+% \end{lemma}
+
+% \begin{proof}
+%   Put $I = \left]a, a + h \right[$: $n I  = \left] n a , n a + n h \right[$ for every $n \in \Rpos$.
+%   First, assume that the additive closure of $I$ is equal to $\left]a, \infty \right[$.
+%   Assume
+  
+%   $$
+%    n a + n h < (n + 1) a 
+%   $$
+% \end{proof} 
+
+\begin{lemma}
   Let $I$ be a non-trivial interval of~$\bR$.
-  The set of those $u \in \bR$ for which $u I$ intersects $I$ is a neighborhood of~$1$. 
+  The set of those $u \in \left[1, \infty \right[$ for which $u I$ and $I$ intersect is a non-trivial interval of~$\bR$.
 \end{lemma}
 
 \begin{proof}
   Put
   $$
-  U = \left\{ u \in \bR : u I \cap I \ne \emptyset \right\} \, . 
+  U = \left\{ u \in \left[1, \infty \right[  : u I \cap I \ne \emptyset \right\} \,.
   $$
-  Since $I$ is an interval of $\bR$,
-  exactly one of the following three assertions holds true:
-  $0 \in I$, $I \subseteq \Rpos$, or $I \subseteq \Rneg$.
+  % and
+  % $$
+  % U' = U \cap  \left[1, \infty \right[ \, .  
+  % $$
+  % Since $1 \in U$,
+  % our task is to prove that both $U'$ and $U \cap \left]0, 1 \right]$ are non-trivial intervals.
+  % Since
+  % $$
+  % U \cap \left]0, 1 \right] =  \left\{ u^{-1} : u \in U' \right\} \,,
+  % $$
+  % $U'$ is an interval if, and only if, $U \cap \left]0, 1\right]$ is an interval.
   First, assume $0 \in I$.
-  Then, $u I \cap I$ contains $0$ as an element for each $u \in \bR$. 
-  It follows $U = \bR$, and the latter is trivially a neighborhood of~$1$.
-  Now, assume $I \subseteq \Rpos$; the case where $I \subseteq \Rneg$ is symmetric.
-  Let $a$, $b \in I$ be such that $a < b$:
-  $[a, b] \subseteq I$ and $b^{-1} a < 1 < b a^{-1}$.
-  %Let $u \in \left[a b^{-1}, b a^{-1} \right]$.
-  For each $u \in \left[1, b a^{-1} \right]$, % is equivalent to $u a \in [a, b]$
-  $u a$ belongs to $[a, b]$, 
-  whence $u a \in u I \cap I$;
-  for each $u \in \left[a b^{-1}, 1 \right]$,
-  $u b$ belongs to $[a, b]$,
-  whence $u b \in u I \cap I$.
-  %For each $\{ u a, u b \} \cap [a, b] \subseteq u I \cap I$ 
-  %For each $u \in \left[a b^{-1}, b a^{-1} \right]$,
-  It follows $\left[a b^{-1}, b a^{-1} \right] \subseteq U$,
-  and the former is clearly a neighborhood of~$1$.
- \end{proof}
+  Then, $u I \cap I$ contains $0$ as an element for every $u \in \bR$.
+  It follows $U = \left[1, \infty \right[$, and thus we are done.
+  Let us now assume $0 \notin I$.
+  Then, $\Rnneg$ contains either $I$ or $- I$ as a subset.
+  Since replacing $I$ with $- I$ leaves $U$ unchanged,
+  we may assume $I \subseteq \Rpos$ without loss of generality.
+  Let $u \in U$ and let $v \in [1, u]$.
+  By definition of $U$, there exists $x \in I$ such that $u x \in I$.
+  Since $x \ge 0$, $[x, u x]$ contains $v x$ as an element; 
+  since $I$ is an interval, $I$ contains $[x, u x]$ as a subset.
+  It follows $v x \in I$, and consequently, $v \in U$.
+  Therefore, $U$ is an initial segment of $\left[1, \infty \right[$.
+  In particular, $U$ is an interval.
+  The final step is to check that the cardinality of $U$ is not less than~$2$.
+  By assumption, the cardinality of $I$ is not less than $2$,
+  so there exist $a$, $b \in I$ be such that $a < b$.
+  Clearly, $1$ and $b a^{-1}$ are two distinct elements of~$U$.
+\end{proof}
 
- \begin{lemma}
-   Let $I$ be a non-trivial interval of $\bR$.
-   There exists $n \in \bN$ such that
-   $\left\{ (n + k) x : (x, k) \in I \times \bN \right\}$
-   $$
-   \bigcup_{k = n}^\infty k I 
-   $$
-   is an interval.
- \end{lemma}
-
- \begin{proof}
-   Since $1 + k^{-1}$ approaches $1$ as $k$ approaches $\infty$,
-   Lemma~\ref{lem:IcapuI} ensures that there exists $n \in \bNast$ such that for every $k \in \left[n, \infty \right[$,
-   $(1 + k^{-1}) I$ intersects $I$, or equivalently, 
-   $(k + 1) I$ and $kI$ intersect.
-   Now, a simple induction on $m$ shows that
-   $$
-   \bigcup_{k = n}^{m + n} k I 
-   $$
-   is an interval for every $m \in \bN$.
-   It follows
-   % $$
-   % \bigcup_{n
-   % $$
-   
-   
- \end{proof}
- 
- 
  \begin{theorem}[Belarusian Mathematical Olympiad 2005]
-   For every  $I$ be a non-trivial interval of~$\bR$.
-   $$
-   \bigcup_{n = 1}^{\infty} k X 
-   $$
-  Let $M$ be an additive submonoid of~$\bR$.
-   If $M$ is closed under multiplication by positive integers and if $M$ contains a non-trivial interval then
-  $M$ contains an unbounded interval.
+   Let $I$ be a non-trivial interval of~$\bR$.
+   The additive closure of $I$ contains an unbounded interval of~$\bR$.
 \end{theorem}
 
 \begin{proof}
-  Let $I$ be non-trivial interval of $\bR$ such that $I \subseteq M$.
+  Let $I$ be non-trivial interval of~$\bR$.
+  Let $a$, $b \in I$ be such that $a < b$: $[a, b] \subseteq I$.
+  Without loss of generality,
+ % we may assume $I = [a, b]$.
+  We may further assume $0 \le a < b$:
+  if $a \le 0 < b$ then replace $a$ with $0$
+  if $a \le 0 $ then replace 
+  and
+  
+
+  if $b \le 0$ then replace $a$, $b$, and $I$ with $- b$, $- a$, and $- I$, respectively. 
+  For every $k \in \Rnneg$,
+  the following three assertions are equivalent:
+  $k \ge {(b - a)}^{-1} a$,
+  $(k + 1) a  \le k b$,
+  and
+  $k I \cap (k + 1) I \ne \emptyset$.
   Put
   $$
-  J_n = \bigcup_{k = 1}^n k I
+  m = \max \left\{ 0, \ceil{{(b - a)}^{-1} a} \right\} \,.
   $$
-  for each $n \in \bN \cup \{ \infty \}$.
-  Our task is to prove that $J_\infty$ is an interval.
+  A straightforward induction on $n$ shows for every $n \in \bZ$, $n \ge m$ implies 
+  $$
+  \bigcup_{k = m}^{n} k I = [m a, n b] \,.
+  $$
+  %It follows that the additive closure of $I$ contains $[m a, n b]$ as subset for every $n \in \
+  
+ %  and
+ %  $k \ge {(b - a)}^{-1} b$ is equivalent to $(k + 1) b \le k a$.
+ %  For every $k \in \bR$, %the following three assertions are equivalent:
+ %  $k \ge {(b - a)}^{-1} a$ is equivalent to $(k + 1) a  \le k b$
+ %  and
+ %  $k \ge {(b - a)}^{-1} b$ is equivalent to $(k + 1) b \le k a$.
+ % % , and $(k + 1)a \in [k a, k b]$.
+  
+  
+  % such that $I \subseteq M$.
+  % Put
+  % $$
+  % J_n = \bigcup_{k = 1}^n k I
+  % $$
+  % for each $n \in \bN \cup \{ \infty \}$.
+  % Our task is to prove that $J_\infty$ is an interval.
  \end{proof}
 
 For every $r \in \Rnneg$ and every $X \subseteq \bR$, equality $X + [- r, + r ] = \bR$ reads ``the covering radius of $X$ is not greater than $r$''.
