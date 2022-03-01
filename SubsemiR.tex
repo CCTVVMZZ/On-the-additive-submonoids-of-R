@@ -66,61 +66,61 @@
 \sloppy
 
 
-\begin{lemma} \label{lem:uI-I}
-  Let $I$ be a non-trivial interval of~$\bR$.
-  The set of those $u \in \left[1, \infty \right[$ for which $u I$ and $I$ intersect is a non-trivial interval. 
-\end{lemma}
-
-\begin{proof}
-  Let $U$ denote the set of those $u \in \left[1, \infty \right[$ for which $u I$ intersect $I$
-  ($0 \notin I$ implies $U = \left\{ x y^{-1} : (x, y) \in I \times I \right\}$
-  and that $0 \in I$ implies $U = \left[1, \infty \right[$).
-  Let us first prove that $U$ is an interval.
-  Let $u \in U$ and let $v \in [1, u]$.
-  By definition of $U$, there exist $x$, $y \in I$ such that $u x = y$.
-  Clearly, 
-  $x \ge 0$ implies $v x \in [x, y]$
-  and
-  $x \le 0$ implies $v x \in [y, x]$ (note that $[x, y]$ or $[y, x]$ is a trivial interval).
-  Either way, $v x$ belongs to $[x, y] \cup [y, x]$, which is a subset of~$I$.
-  It follows $v x \in I$, and consequently, $v \in U$.
-  %Since $x \ge 0$, we have $v x \in [1, u] x = [x, y] \subseteq I$, whence $v \in U$.
-  Therefore, $U$ is an initial segment of $\left[1, \infty \right[$.
-  In particular, $U$ is an interval.
-  Let us now check that the cardinality of $U$ is not less than~$2$.
-  The cardinality of $I$ is infinite, 
-  so there exist $a$, $b$, $c$, $d \in I$ such that $a < b < c < d$.
-  If $c > 0$ then $1$ and $d c^{-1}$ are two distinct elements of $U$
-  and
-  if $c \le 0$ then $1$ and $a b^{-1}$ are two distinct elements of~$U$.
-\end{proof}
-
-
-
  \begin{theorem}[Belarusian Mathematical Olympiad 2005]
    Let $I$ be a non-trivial interval of~$\bR$.
    The additive closure of $I$ contains an unbounded interval of~$\bR$.
 \end{theorem}
 
 \begin{proof}
-  Let $K$ denote the set of those $k \in \bNast$ for which $\left(1 + k^{-1}\right) I$ intersect~$I$.
-  It follows from Lemma~\ref{lem:uI-I} that $K$ is an initial segment of $\bNast$.
-  In particular, $K$ is finite.
-  Let $m$ denote the least element of $\bNast \setminus K$.
-  For each $n \in \bN$, $m + n$ is not an element of $K$,
-  so  $\left(1 + {(m + n)}^{-1} \right) I$ intersects $I$, or equivalently, $(m + n + 1) I$ and $(m + n) I$ intersect.
-  Put
+  Let $S$ denote the additive closure of~$I$.
+  (Equality $(n + 1) I = n I + I$ holds true for every $n \in \bN$ because $I$ is an interval, whence 
   $$
-  J_n = \bigcup_{k = m}^{m + n} k I 
+  S = \bigcup_{n = 0}^\infty n I 
   $$
-  for each $n \in \bN$.
-  For each $n \in \bN$, $(m + n + 1) I$ intersects $J_n$, 
-  so a simple induction on $n$ shows that $J_n$ is an interval.
-  Since $J_n$ contains $m I$ as subset of every $n \in \bN$,
-  $J_\infty = \bigcup_{n = 0}^\infty  J_n = 
-  
-  is an interval for every integer $n \ge m$.
-\end{proof}
+  ). 
+  Since the cardinality of $I$ greater than $3$,
+  there exists $\alpha \in I$ such that $\alpha \ne 0$,
+  $\alpha$ is not the least element of $I$, and
+  $\alpha$ is not the greatest element of~$I$.
+  Hence, $I$ is a neighborhood of $\alpha$ in~$\bR$.
+  Put $J = \alpha^{-1} I$.
+  By construction,
+  % $J$ is an interval,
+  % $1$ is an element of $J$,
+  % $1$ is not the least element of $J$, and
+  % $1$ is not the greatest element of $J$.
+  % Therefore,
+  $J$ is a neighborhood of $1$ in~$\bR$.
+  In particular, there exists $\epsilon \in \Rpos$ such that $\left[1, 1 + \epsilon \right[ \subseteq J$.
+  Put $m = \ceil{\epsilon^{-1}}$: $m \epsilon \ge 1$.
+  For each integer $n \ge m$,
+  we have $n \epsilon \ge 1$, whence 
+  $$
+  \left[n, n + 1 \right[
+  \subseteq
+  \left[n, n + n \epsilon \right[
+  =
+  n \left[1, 1 + \epsilon \right[
+  \subseteq
+  n J \, . 
+  $$
+  It follows
+  $$
+  \left[m, \infty \right[
+   = \bigcup_{n = m}^\infty \left[n, n + 1 \right[
+   \subseteq \bigcup_{n = m}^\infty  n J
+   = \alpha^{-1} \bigcup_{n = m}^\infty n  I
+   \subseteq \alpha^{-1}  S \, .
+   $$
+   Therefore,
+   $\alpha > 0$ implies $\left[\alpha m, \infty \right[ \subseteq S$
+   and $\alpha < 0$ implies $\left] - \infty, \alpha m \right] \subseteq S$.
+   Either way, $S$ contains an unbounded interval.
+ \end{proof}
+
+ %It can be shown with a little more work that 
+
+ 
 
 For every $r \in \Rnneg$ and every $X \subseteq \bR$, equality $X + [- r, + r ] = \bR$ reads ``the covering radius of $X$ is not greater than $r$''.
 
