@@ -66,63 +66,36 @@
 \sloppy
 
 
-
-% \begin{lemma}
-%   Let $a$, $h \in \Rnneg$.
-%   The additive closure of $\left]a, a + h \right[$ is equal to $\left] a, \infty \right[$
-%   if, and only if, $h$ is larger than~$a$.
-% \end{lemma}
-
-% \begin{proof}
-%   Put $I = \left]a, a + h \right[$: $n I  = \left] n a , n a + n h \right[$ for every $n \in \Rpos$.
-%   First, assume that the additive closure of $I$ is equal to $\left]a, \infty \right[$.
-%   Assume
-  
-%   $$
-%    n a + n h < (n + 1) a 
-%   $$
-% \end{proof} 
-
-\begin{lemma}
+\begin{lemma} \label{lem:uI-I}
   Let $I$ be a non-trivial interval of~$\bR$.
-  The set of those $u \in \left[1, \infty \right[$ for which $u I$ and $I$ intersect is a non-trivial interval of~$\bR$.
+  The set of those $u \in \left[1, \infty \right[$ for which $u I$ and $I$ intersect is a non-trivial interval. 
 \end{lemma}
 
 \begin{proof}
-  Put
-  $$
-  U = \left\{ u \in \left[1, \infty \right[  : u I \cap I \ne \emptyset \right\} \,.
-  $$
-  % and
-  % $$
-  % U' = U \cap  \left[1, \infty \right[ \, .  
-  % $$
-  % Since $1 \in U$,
-  % our task is to prove that both $U'$ and $U \cap \left]0, 1 \right]$ are non-trivial intervals.
-  % Since
-  % $$
-  % U \cap \left]0, 1 \right] =  \left\{ u^{-1} : u \in U' \right\} \,,
-  % $$
-  % $U'$ is an interval if, and only if, $U \cap \left]0, 1\right]$ is an interval.
-  First, assume $0 \in I$.
-  Then, $u I \cap I$ contains $0$ as an element for every $u \in \bR$.
-  It follows $U = \left[1, \infty \right[$, and thus we are done.
-  Let us now assume $0 \notin I$.
-  Then, $\Rnneg$ contains either $I$ or $- I$ as a subset.
-  Since replacing $I$ with $- I$ leaves $U$ unchanged,
-  we may assume $I \subseteq \Rpos$ without loss of generality.
+  Let $U$ denote the set of those $u \in \left[1, \infty \right[$ for which $u I$ intersect $I$
+  ($0 \notin I$ implies $U = \left\{ x y^{-1} : (x, y) \in I \times I \right\}$
+  and that $0 \in I$ implies $U = \left[1, \infty \right[$).
+  Let us first prove that $U$ is an interval.
   Let $u \in U$ and let $v \in [1, u]$.
-  By definition of $U$, there exists $x \in I$ such that $u x \in I$.
-  Since $x \ge 0$, $[x, u x]$ contains $v x$ as an element; 
-  since $I$ is an interval, $I$ contains $[x, u x]$ as a subset.
+  By definition of $U$, there exist $x$, $y \in I$ such that $u x = y$.
+  Clearly, 
+  $x \ge 0$ implies $v x \in [x, y]$
+  and
+  $x \le 0$ implies $v x \in [y, x]$ (note that $[x, y]$ or $[y, x]$ is a trivial interval).
+  Either way, $v x$ belongs to $[x, y] \cup [y, x]$, which is a subset of~$I$.
   It follows $v x \in I$, and consequently, $v \in U$.
+  %Since $x \ge 0$, we have $v x \in [1, u] x = [x, y] \subseteq I$, whence $v \in U$.
   Therefore, $U$ is an initial segment of $\left[1, \infty \right[$.
   In particular, $U$ is an interval.
-  The final step is to check that the cardinality of $U$ is not less than~$2$.
-  By assumption, the cardinality of $I$ is not less than $2$,
-  so there exist $a$, $b \in I$ be such that $a < b$.
-  Clearly, $1$ and $b a^{-1}$ are two distinct elements of~$U$.
+  Let us now check that the cardinality of $U$ is not less than~$2$.
+  The cardinality of $I$ is infinite, 
+  so there exist $a$, $b$, $c$, $d \in I$ such that $a < b < c < d$.
+  If $c > 0$ then $1$ and $d c^{-1}$ are two distinct elements of $U$
+  and
+  if $c \le 0$ then $1$ and $a b^{-1}$ are two distinct elements of~$U$.
 \end{proof}
+
+
 
  \begin{theorem}[Belarusian Mathematical Olympiad 2005]
    Let $I$ be a non-trivial interval of~$\bR$.
@@ -130,50 +103,24 @@
 \end{theorem}
 
 \begin{proof}
-  Let $I$ be non-trivial interval of~$\bR$.
-  Let $a$, $b \in I$ be such that $a < b$: $[a, b] \subseteq I$.
-  Without loss of generality,
- % we may assume $I = [a, b]$.
-  We may further assume $0 \le a < b$:
-  if $a \le 0 < b$ then replace $a$ with $0$
-  if $a \le 0 $ then replace 
-  and
-  
-
-  if $b \le 0$ then replace $a$, $b$, and $I$ with $- b$, $- a$, and $- I$, respectively. 
-  For every $k \in \Rnneg$,
-  the following three assertions are equivalent:
-  $k \ge {(b - a)}^{-1} a$,
-  $(k + 1) a  \le k b$,
-  and
-  $k I \cap (k + 1) I \ne \emptyset$.
+  Let $K$ denote the set of those $k \in \bNast$ for which $\left(1 + k^{-1}\right) I$ intersect~$I$.
+  It follows from Lemma~\ref{lem:uI-I} that $K$ is an initial segment of $\bNast$.
+  In particular, $K$ is finite.
+  Let $m$ denote the least element of $\bNast \setminus K$.
+  For each $n \in \bN$, $m + n$ is not an element of $K$,
+  so  $\left(1 + {(m + n)}^{-1} \right) I$ intersects $I$, or equivalently, $(m + n + 1) I$ and $(m + n) I$ intersect.
   Put
   $$
-  m = \max \left\{ 0, \ceil{{(b - a)}^{-1} a} \right\} \,.
+  J_n = \bigcup_{k = m}^{m + n} k I 
   $$
-  A straightforward induction on $n$ shows for every $n \in \bZ$, $n \ge m$ implies 
-  $$
-  \bigcup_{k = m}^{n} k I = [m a, n b] \,.
-  $$
-  %It follows that the additive closure of $I$ contains $[m a, n b]$ as subset for every $n \in \
+  for each $n \in \bN$.
+  For each $n \in \bN$, $(m + n + 1) I$ intersects $J_n$, 
+  so a simple induction on $n$ shows that $J_n$ is an interval.
+  Since $J_n$ contains $m I$ as subset of every $n \in \bN$,
+  $J_\infty = \bigcup_{n = 0}^\infty  J_n = 
   
- %  and
- %  $k \ge {(b - a)}^{-1} b$ is equivalent to $(k + 1) b \le k a$.
- %  For every $k \in \bR$, %the following three assertions are equivalent:
- %  $k \ge {(b - a)}^{-1} a$ is equivalent to $(k + 1) a  \le k b$
- %  and
- %  $k \ge {(b - a)}^{-1} b$ is equivalent to $(k + 1) b \le k a$.
- % % , and $(k + 1)a \in [k a, k b]$.
-  
-  
-  % such that $I \subseteq M$.
-  % Put
-  % $$
-  % J_n = \bigcup_{k = 1}^n k I
-  % $$
-  % for each $n \in \bN \cup \{ \infty \}$.
-  % Our task is to prove that $J_\infty$ is an interval.
- \end{proof}
+  is an interval for every integer $n \ge m$.
+\end{proof}
 
 For every $r \in \Rnneg$ and every $X \subseteq \bR$, equality $X + [- r, + r ] = \bR$ reads ``the covering radius of $X$ is not greater than $r$''.
 
@@ -1289,3 +1236,49 @@ $q = \floor{ a  b^{-1} }$.
      \item $\bN a + \bN b$ is dense in $\bR$, and \label{ass:Nr-N:dense}
      \item $a b^{-1}$ is negative and irrational. \label{ass:Nr-N:irrational}
   \end{enumerate}
+\begin{lemma}
+  For every $I \subseteq \bR \setminus \{ 0 \}$,
+  $I$ is an interval if, and only if, $\left\{ x^{-1} : x \in I \right\}$ is an interval.
+\end{lemma} 
+
+\begin{proof}
+  Put $J = \left\{ x^{-1} : x \in I \right\}$.
+  Since $I = \left\{ x^{-1} : x \in J \right\}$,
+  $I$ and $J$ play symmetric roles,
+  and thus we only need to prove the ``if part''.
+  Assume that $J$ is an interval.
+  Our task it to prove that $I$ is an interval.
+  Let $a$, $b \in I$ be such that $a < b$ and let $t \in \left[a, b\right]$.
+  
+\end{proof} 
+
+\begin{lemma} \label{lem:uI-I}
+  If both $I$ and $J$ are real intervals and if $0 \notin J$ then 
+  $$
+  K = \left\{ x  y^{-1} : (x, y) \in I \times J \right\}
+  $$
+  is an interval.
+\end{lemma}
+
+\begin{proof}
+  Let $z_1$, $z_2 \in K$  and let $z \in [z_1, z_2]$.
+  Our task is to prove $z \in K$.
+  Let $x_1$, $x_2 \in I$ and let $y_1$, $y_2 \in J$ be such that
+  $$
+  \frac{x_1}{y_1}  = z_1 \le z \le z_2 =  \frac{x_2}{y_2} \, .
+  $$
+  First, assume $z \ge x_1 y_2^{-1}$ and $y_2 > 0$.
+  Then, $z y_2$ belongs to $[x_1, x_2]$.
+  Since the latter set is a subset of $I$,
+  $z y_2$ is an element of $I$, and thus $z$
+  Second, assume $z \ge x_1 y_2^{-1}$ and $y_2 < 0$.
+  Then, $z y_2$ belongs to $[x_2, x_1]$.
+  Third, assume $z < x_1 y_2^{-1}$ and $y_2 > 0$.
+  
+  Assume $y_2 \le y_1$.
+  $$
+  x_1 \le t y_1 \le \frac{y_1}{y_2}   
+  $$
+  
+  Assume $x_1 \le x_2$.
+\end{proof}
