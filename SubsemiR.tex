@@ -73,34 +73,29 @@
 
 \begin{proof}
   Let $S$ denote the additive closure of~$I$.
-  (Equality $(n + 1) I = n I + I$ holds true for every $n \in \bN$ because $I$ is an interval, whence 
-  $$
-  S = \bigcup_{n = 0}^\infty n I 
-  $$
-  ). 
   Since the cardinality of $I$ greater than $3$,
   there exists $\alpha \in I$ such that $\alpha \ne 0$,
   $\alpha$ is not the least element of $I$, and
   $\alpha$ is not the greatest element of~$I$.
   Hence, $I$ is a neighborhood of $\alpha$ in~$\bR$.
   Put $J = \alpha^{-1} I$.
-  By construction,
+  %By construction,
   % $J$ is an interval,
   % $1$ is an element of $J$,
   % $1$ is not the least element of $J$, and
   % $1$ is not the greatest element of $J$.
   % Therefore,
-  $J$ is a neighborhood of $1$ in~$\bR$.
-  In particular, there exists $\epsilon \in \Rpos$ such that $\left[1, 1 + \epsilon \right[ \subseteq J$.
-  Put $m = \ceil{\epsilon^{-1}}$: $m \epsilon \ge 1$.
+  Since $J$ is a neighborhood of $1$ in $\bR$, 
+  there exists $m \in \bNast$ such that $\left[1, 1 + m^{-1} \right[ \subseteq J$.
+  %Put $m = \ceil{\epsilon^{-1}}$: $m \epsilon \ge 1$.
   For each integer $n \ge m$,
-  we have $n \epsilon \ge 1$, whence 
+  we have %$n \epsilon \ge 1$, whence 
   $$
   \left[n, n + 1 \right[
   \subseteq
-  \left[n, n + n \epsilon \right[
+  \left[n, n + n m^{-1} \right[
   =
-  n \left[1, 1 + \epsilon \right[
+  n \left[1, 1 + m^{-1} \right[
   \subseteq
   n J \, . 
   $$
@@ -116,11 +111,27 @@
    $\alpha > 0$ implies $\left[\alpha m, \infty \right[ \subseteq S$
    and $\alpha < 0$ implies $\left] - \infty, \alpha m \right] \subseteq S$.
    Either way, $S$ contains an unbounded interval.
+  % (The additive closure of $\left[1, 1 + \epsilon \right[$ is equal to
+  % $$
+  % \left[m, \infty \right[ \cup  \bigcup_{n = 1}^{m - 1} \left[ n, n + n \epsilon \right[ 
+  % $$
+  % and has exactly $m$ connected components; the verification is left to the reader).
  \end{proof}
 
- %It can be shown with a little more work that 
-
- 
+ Let $I$ be an interval of $\bR$;
+ let $S$ denote the additive closure of~$I$.
+ Equality $(p + q) I = p I + q I$ holds true for all $p$, $q \in \bN$ because $I$ is an interval, whence 
+  $$
+  S = \bigcup_{n = 0}^\infty n I \,.
+  $$
+ Equality $S = \bR$ holds true if, and only if, $I$ straddles~$0$.
+ For every $x \in \bR$, $S = \bN x$ is equivalent to $I = \{ x \}$.
+ We claim that if $I$ is non-trivial then there exist $m \in \bN$ and an unbounded interval $J$ of $\bR$ such that
+ $$
+ S = J \cup \bigcup_{n = 1}^{m - 1} n I  
+ $$
+ and the $m$ intervals involved in the right-hand side are pairwise disjoint;
+ the verification is left to the reader.
 
 For every $r \in \Rnneg$ and every $X \subseteq \bR$, equality $X + [- r, + r ] = \bR$ reads ``the covering radius of $X$ is not greater than $r$''.
 
